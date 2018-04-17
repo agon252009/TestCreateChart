@@ -4,12 +4,12 @@
 winexe
 C#
 .cs
-\\mac\home\documents\visual studio 2017\Projects\TestCreateChart\TestCreateChart\obj\Debug\
+C:\TestCreateChart\TestCreateChart\obj\Debug\
 TestCreateChart
 none
 false
 DEBUG;TRACE
-\\mac\home\documents\visual studio 2017\Projects\TestCreateChart\TestCreateChart\App.xaml
+C:\TestCreateChart\TestCreateChart\App.xaml
 21673590306
 
 666955212

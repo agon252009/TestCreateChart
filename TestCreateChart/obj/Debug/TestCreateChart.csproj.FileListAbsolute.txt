@@ -16,3 +16,21 @@
 \\mac\home\documents\visual studio 2017\Projects\TestCreateChart\TestCreateChart\obj\Debug\TestCreateChart.exe
 \\mac\home\documents\visual studio 2017\Projects\TestCreateChart\TestCreateChart\obj\Debug\TestCreateChart.pdb
 \\mac\home\documents\visual studio 2017\Projects\TestCreateChart\TestCreateChart\obj\Debug\TestCreateChart.csprojResolveAssemblyReference.cache
+C:\TestCreateChart\TestCreateChart\bin\Debug\TestCreateChart.exe.config
+C:\TestCreateChart\TestCreateChart\bin\Debug\TestCreateChart.exe
+C:\TestCreateChart\TestCreateChart\bin\Debug\TestCreateChart.pdb
+C:\TestCreateChart\TestCreateChart\obj\Debug\MainWindow.g.cs
+C:\TestCreateChart\TestCreateChart\obj\Debug\MyChart.g.cs
+C:\TestCreateChart\TestCreateChart\obj\Debug\App.g.cs
+C:\TestCreateChart\TestCreateChart\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\TestCreateChart\TestCreateChart\obj\Debug\TestCreateChart_MarkupCompile.cache
+C:\TestCreateChart\TestCreateChart\obj\Debug\TestCreateChart_MarkupCompile.lref
+C:\TestCreateChart\TestCreateChart\obj\Debug\MainWindow.baml
+C:\TestCreateChart\TestCreateChart\obj\Debug\MyChart.baml
+C:\TestCreateChart\TestCreateChart\obj\Debug\TestCreateChart.g.resources
+C:\TestCreateChart\TestCreateChart\obj\Debug\TestCreateChart.Properties.Resources.resources
+C:\TestCreateChart\TestCreateChart\obj\Debug\TestCreateChart.csproj.GenerateResource.Cache
+C:\TestCreateChart\TestCreateChart\obj\Debug\TestCreateChart.csproj.CoreCompileInputs.cache
+C:\TestCreateChart\TestCreateChart\obj\Debug\TestCreateChart.exe
+C:\TestCreateChart\TestCreateChart\obj\Debug\TestCreateChart.pdb
+C:\TestCreateChart\TestCreateChart\obj\Debug\TestCreateChart.csprojResolveAssemblyReference.cache
