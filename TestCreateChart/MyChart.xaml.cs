@@ -32,8 +32,10 @@ namespace TestCreateChart
 
         public int MaxXValue { get; set; }
 
+        public int HeaderMargin { get; set; } = 50;
 
-
+        public int FooterMargin { get; set; } = 50;
+        
         private void DrawHorizontalLines()
         {
             ClearLines();
