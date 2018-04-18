@@ -22,7 +22,7 @@ namespace TestCreateChart
             DrawHorizontalLines();
         }
 
-        public int HorizontalLineInterval { get; set; } = 50;
+        public double HorizontalLineInterval { get; set; } = 250;
 
         public int MinYValue { get; set; }
 
@@ -36,33 +36,44 @@ namespace TestCreateChart
 
         private void DrawHorizontalLines()
         {
-            ChartCanvas.Children.Clear();
+            ClearLines();
+
             var height = ChartCanvas.ActualHeight;
-            var heightTotal = MaxYValue - MinYValue;
-            int pixelMapping = (int)Math.Round(heightTotal / height);
+            double intervalPercentage = HorizontalLineInterval / MaxYValue;
             int runningTotal = 0;
 
-            for (int index = 0; index <= height; index ++)
+            int pixelLine = (int)(height * intervalPercentage);
+            for (int pixel = (int) height; pixel >=0; pixel--)
             {
-                runningTotal += pixelMapping;
-
-                if (runningTotal < HorizontalLineInterval)
+                if (pixelLine == runningTotal)
                 {
-                    continue;
+                    var line = new Line
+                    {
+                        X1 = 0,
+                        Y1 = pixel,
+                        X2 = ActualWidth,
+                        Y2 = pixel,
+                        Stroke = Brushes.Black,
+                        StrokeThickness = 1
+                    };
+
+                    ChartCanvas.Children.Add(line);
+
+                    runningTotal = 0;
                 }
 
-                var line = new Line
-                {
-                    X1 = 0,
-                    Y1 = index,
-                    X2 = ActualWidth,
-                    Y2 = index,
-                    Stroke = Brushes.Black,
-                    StrokeThickness = 1
-                };
+                runningTotal++;
+            }
+        }
 
-                ChartCanvas.Children.Add(line);
-                runningTotal = 0;
+        private void ClearLines()
+        {
+            for (int childIndex = ChartCanvas.Children.Count - 1; childIndex >= 0; childIndex--)
+            {
+                if (ChartCanvas.Children[childIndex] is Line line)
+                {
+                    ChartCanvas.Children.Remove(line);
+                }
             }
         }
     }
