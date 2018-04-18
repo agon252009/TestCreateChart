@@ -32,9 +32,9 @@ namespace TestCreateChart
 
         public int MaxXValue { get; set; }
 
-        public int HeaderMargin { get; set; } = 50;
+        public double HeaderMarginPercentage { get; set; } = .05;
 
-        public int FooterMargin { get; set; } = 50;
+        public double FooterMarginMarginPercentage { get; set; } = .05;
         
         private void DrawHorizontalLines()
         {
