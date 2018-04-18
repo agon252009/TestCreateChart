@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:testCreateChart="clr-namespace:TestCreateChart"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="600">
+        Title="MainWindow"  Width="600">
     <Grid>
-        <testCreateChart:MyChart MinYValue="0" MaxYValue="1000" MinXValue="0" MaxXValue="300"/>
+        <testCreateChart:MyChart MinYValue="0" MaxYValue="500" MinXValue="0" MaxXValue="300"/>
     </Grid>
 </Window>
 

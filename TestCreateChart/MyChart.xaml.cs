@@ -35,19 +35,24 @@ namespace TestCreateChart
         public double HeaderMarginPercentage { get; set; } = .05;
 
         public double FooterMarginMarginPercentage { get; set; } = .05;
-        
+
         private void DrawHorizontalLines()
         {
             ClearLines();
 
-            var height = ChartCanvas.ActualHeight;
+            double height = ChartCanvas.ActualHeight;
+            double headerPixelMargin = height * HeaderMarginPercentage;
+            double footerPixelmargin = height * FooterMarginMarginPercentage;
             double intervalPercentage = HorizontalLineInterval / MaxYValue;
             int runningTotal = 0;
 
-            int pixelLine = (int)(height * intervalPercentage);
-            for (int pixel = (int) height; pixel >=0; pixel--)
+            int totalPixels = (int) (height - headerPixelMargin - footerPixelmargin);
+            int pixelLine = (int)(totalPixels * intervalPercentage);
+            int startPixel = (int) ((int) height - footerPixelmargin);
+
+            for (int pixel = startPixel; pixel >= 0; pixel--)
             {
-                if (pixelLine == runningTotal)
+                if (pixelLine == runningTotal || pixel == startPixel)
                 {
                     var line = new Line
                     {
@@ -61,7 +66,8 @@ namespace TestCreateChart
 
                     ChartCanvas.Children.Add(line);
 
-                    runningTotal = 0;
+                    if (pixelLine == runningTotal)
+                        runningTotal = 0;
                 }
 
                 runningTotal++;
