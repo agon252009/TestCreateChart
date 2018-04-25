@@ -23,6 +23,11 @@ namespace TestCreateChart
         public MainWindow()
         {
             InitializeComponent();
+            //TextBlock test = new TextBlock {Text = "500"};
+            //Chart.AddYLabel01Control(test, 500);
+
+            //test = new TextBlock { Text = "100" };
+            //Chart.AddYLabel01Control(test, 100);
         }
     }
 }

@@ -5,9 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:testCreateChart="clr-namespace:TestCreateChart"
         mc:Ignorable="d"
-        Title="MainWindow"  Width="600">
+        Title="MainWindow">
     <Grid>
-        <testCreateChart:MyChart MinYValue="0" MaxYValue="500" MinXValue="0" MaxXValue="300"/>
+        <Grid.Resources>
+            <Style TargetType="Line">
+                <Setter Property="Stroke" Value="WhiteSmoke"></Setter>
+                <Setter Property="StrokeThickness" Value="2"></Setter>
+            </Style>
+            <Style TargetType="TextBlock">
+                <Setter Property="FontSize" Value="25"></Setter>
+            </Style>
+        </Grid.Resources>
+        <testCreateChart:MyChart x:Name="Chart" MinYValue="0" MaxYValue="500" MinXValue="0" MaxXValue="300">
+            <testCreateChart:MyChart.YAxisItems>
+                <testCreateChart:ChartAxisItem Header="500" AxisValue="500"></testCreateChart:ChartAxisItem>
+                <testCreateChart:ChartAxisItem Header="100" AxisValue="100"></testCreateChart:ChartAxisItem>
+                <testCreateChart:ChartAxisItem Header="0" AxisValue="0"></testCreateChart:ChartAxisItem>
+            </testCreateChart:MyChart.YAxisItems>
+        </testCreateChart:MyChart>
     </Grid>
 </Window>
 

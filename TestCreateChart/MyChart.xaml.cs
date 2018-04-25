@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 using System.Windows.Shapes;
 
 namespace TestCreateChart
@@ -9,20 +9,40 @@ namespace TestCreateChart
     /// <summary>
     /// Interaction logic for MyChart.xaml
     /// </summary>
-    public partial class MyChart : UserControl
+    public partial class MyChart
     {
+        public ObservableCollection<ChartAxisItem> YAxisItems { get; } = new ObservableCollection<ChartAxisItem>();
+
         public MyChart()
         {
             InitializeComponent();
             ChartCanvas.SizeChanged += ChartCanvas_SizeChanged;
+           
         }
 
         private void ChartCanvas_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             DrawHorizontalLines();
+            YLabelCanvas01.Children.Clear();
+
+            foreach (ChartAxisItem chartAxisItem in YAxisItems)
+            {
+                var test = chartAxisItem.Header;
+                
+                if (test is string str)
+                {
+                    var textBlock = new TextBlock{Text = str};
+                    YLabelCanvas01.Children.Add(textBlock);
+                    textBlock.SizeChanged += (o, args) =>
+                    {
+                        Canvas.SetTop(textBlock, Math.Round(ConvertYValueToYCoordinate(chartAxisItem.AxisValue) - textBlock.ActualHeight / 1.95));
+                        Canvas.SetLeft(textBlock, YLabelCanvas01.ActualWidth / 2.0 - textBlock.ActualWidth / 2.0);
+                    };
+                }
+            }
         }
 
-        public double HorizontalLineInterval { get; set; } = 250;
+        public double HorizontalLineInterval { get; set; } = 100;
 
         public int MinYValue { get; set; }
 
@@ -40,38 +60,53 @@ namespace TestCreateChart
         {
             ClearLines();
 
-            double height = ChartCanvas.ActualHeight;
-            double headerPixelMargin = height * HeaderMarginPercentage;
-            double footerPixelmargin = height * FooterMarginMarginPercentage;
             double intervalPercentage = HorizontalLineInterval / MaxYValue;
+            int pixelLineInterval = (int) Math.Round(GetTotalHeightMinusMargins() * intervalPercentage);
+            int startPixel = (int)Math.Round(GetStartPixel());
+
             int runningTotal = 0;
-
-            int totalPixels = (int) (height - headerPixelMargin - footerPixelmargin);
-            int pixelLine = (int)(totalPixels * intervalPercentage);
-            int startPixel = (int) ((int) height - footerPixelmargin);
-
             for (int pixel = startPixel; pixel >= 0; pixel--)
             {
-                if (pixelLine == runningTotal || pixel == startPixel)
+                if (pixelLineInterval == runningTotal || pixel == startPixel)
                 {
                     var line = new Line
                     {
                         X1 = 0,
                         Y1 = pixel,
-                        X2 = ActualWidth,
+                        X2 = ChartCanvas.ActualWidth,
                         Y2 = pixel,
-                        Stroke = Brushes.Black,
-                        StrokeThickness = 1
                     };
 
                     ChartCanvas.Children.Add(line);
 
-                    if (pixelLine == runningTotal)
+                    if (pixelLineInterval == runningTotal)
+                    {
                         runningTotal = 0;
+                    }
                 }
 
                 runningTotal++;
             }
+        }
+
+        private double GetStartPixel()
+        {
+            return ChartCanvas.ActualHeight - GetFooterPixelMargin();
+        }
+
+        private double GetTotalHeightMinusMargins()
+        {
+            return ChartCanvas.ActualHeight - GetHeaderPixelMargin() - GetFooterPixelMargin();
+        }
+
+        private double GetHeaderPixelMargin()
+        {
+            return ChartCanvas.ActualHeight * HeaderMarginPercentage;
+        }
+
+        private double GetFooterPixelMargin()
+        {
+            return ChartCanvas.ActualHeight * FooterMarginMarginPercentage;
         }
 
         private void ClearLines()
@@ -84,5 +119,17 @@ namespace TestCreateChart
                 }
             }
         }
+        
+        private double ConvertYValueToYCoordinate(double atYValue)
+        {
+            return GetStartPixel() - (atYValue / MaxYValue * GetTotalHeightMinusMargins());
+        }
+    }
+
+    public class ChartAxisItem
+    {
+        public object Header { get; set; }
+
+        public double AxisValue { get; set; }
     }
 }

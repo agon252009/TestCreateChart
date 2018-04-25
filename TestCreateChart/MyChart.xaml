@@ -6,10 +6,20 @@
              xmlns:local="clr-namespace:TestCreateChart"
              mc:Ignorable="d">
     <Grid>
-        <Canvas Background="Aqua" Name="ChartCanvas">
-            <Canvas.Children>
-                <TextBlock Canvas.Left="200" Canvas.Top="150">CHART</TextBlock>
-            </Canvas.Children>
-        </Canvas>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Canvas  Width="50" Grid.Column="0" Name="YLabelCanvas01" />
+        <Canvas Grid.Column="1" Background="Aqua" Name="ChartCanvas" />
+        <Canvas Width="50" Grid.Column="2" Name="YLabelCanvas02" />
     </Grid>
 </UserControl>
+
+
+
+
+
+
+
