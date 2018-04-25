@@ -34,3 +34,4 @@ C:\TestCreateChart\TestCreateChart\obj\Debug\TestCreateChart.csproj.CoreCompileI
 C:\TestCreateChart\TestCreateChart\obj\Debug\TestCreateChart.exe
 C:\TestCreateChart\TestCreateChart\obj\Debug\TestCreateChart.pdb
 C:\TestCreateChart\TestCreateChart\obj\Debug\TestCreateChart.csprojResolveAssemblyReference.cache
+C:\TestCreateChart\TestCreateChart\obj\Debug\Themes\Generic.baml

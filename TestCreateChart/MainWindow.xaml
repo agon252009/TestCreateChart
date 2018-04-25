@@ -6,27 +6,24 @@
         xmlns:testCreateChart="clr-namespace:TestCreateChart"
         mc:Ignorable="d"
         Title="MainWindow">
+    
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/Generic.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid>
         <Grid.Resources>
             <Style TargetType="Line">
-                <Setter Property="Stroke" Value="WhiteSmoke"></Setter>
+                <Setter Property="Stroke" Value="Black"></Setter>
                 <Setter Property="StrokeThickness" Value="2"></Setter>
             </Style>
-            <Style TargetType="TextBlock">
-                <Setter Property="FontSize" Value="25"></Setter>
+            <Style TargetType="testCreateChart:ChartAxisItem">
+                <Setter Property="FontSize" Value="20"></Setter>
             </Style>
         </Grid.Resources>
-        <testCreateChart:MyChart x:Name="Chart" MinYValue="0" MaxYValue="500" MinXValue="0" MaxXValue="300">
-            <testCreateChart:MyChart.YAxisItems>
-                <testCreateChart:ChartAxisItem Header="500" AxisValue="500"></testCreateChart:ChartAxisItem>
-                <testCreateChart:ChartAxisItem Header="100" AxisValue="100"></testCreateChart:ChartAxisItem>
-                <testCreateChart:ChartAxisItem Header="0" AxisValue="0"></testCreateChart:ChartAxisItem>
-            </testCreateChart:MyChart.YAxisItems>
-        </testCreateChart:MyChart>
+        <testCreateChart:MyChart x:Name="Chart" AutoGenerateYAxisItems="True" YAxisItemInterval="200"  YAxisLineInterval="100" MinYValue="0" MaxYValue="1000" MinXValue="0" MaxXValue="300" />
     </Grid>
 </Window>
-
-
-
-
-
