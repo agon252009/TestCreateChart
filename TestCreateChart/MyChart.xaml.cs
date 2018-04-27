@@ -104,6 +104,7 @@ namespace TestCreateChart
         
         private double ConvertYValueToYCoordinate(double atYValue)
         {
+            //TODO This only works if minYValue is 0. Need to doubleback on this.
             return GetStartPixel() - (atYValue / MaxYValue * GetTotalHeightMinusMargins());
         }
 

@@ -24,6 +24,7 @@
                 <Setter Property="FontSize" Value="20"></Setter>
             </Style>
         </Grid.Resources>
-        <testCreateChart:MyChart x:Name="Chart" AutoGenerateYAxisItems="True" YAxisItemInterval="200"  YAxisLineInterval="100" MinYValue="0" MaxYValue="1000" MinXValue="0" MaxXValue="300" />
+        <!--<testCreateChart:MyChart x:Name="Chart" AutoGenerateYAxisItems="True" YAxisItemInterval="200"  YAxisLineInterval="100" MinYValue="0" MaxYValue="1000" MinXValue="0" MaxXValue="300" />-->
+        <testCreateChart:MeterControl  VerticalAlignment="Stretch" Background="CadetBlue" Width="80"></testCreateChart:MeterControl>
     </Grid>
 </Window>
