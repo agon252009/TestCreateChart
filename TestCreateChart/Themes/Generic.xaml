@@ -18,11 +18,11 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:MeterControl}">
-                  <Grid Width="{TemplateBinding ActualWidth}" Background="{TemplateBinding Background}">
-                      <Canvas Width="{Binding RelativeSource={RelativeSource AncestorType=Grid}, Path=ActualWidth}">
-                          <Button x:Name="PART_UpperButton" Width="{Binding RelativeSource={RelativeSource AncestorType=Canvas}, Path=ActualWidth}"  Height="50">UpperButton</Button>
+                    <Grid Width="{TemplateBinding ActualWidth}" Background="{TemplateBinding Background}">
+                        <Canvas Width="{Binding RelativeSource={RelativeSource AncestorType=Grid}, Path=ActualWidth}">
+                            <Button x:Name="PART_UpperButton" Width="{Binding RelativeSource={RelativeSource AncestorType=Canvas}, Path=ActualWidth}"  Height="50">UpperButton</Button>
                             <Button x:Name="PART_LowerButton" Width="{Binding RelativeSource={RelativeSource AncestorType=Canvas}, Path=ActualWidth}" Height="50">LowerButton</Button>
-                      </Canvas>
+                        </Canvas>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
