@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:testCreateChart="clr-namespace:TestCreateChart"
         mc:Ignorable="d"
-        Title="MainWindow">
+        Title="MainWindow"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}">
     
     <Window.Resources>
         <ResourceDictionary>
@@ -14,6 +15,10 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
+    <Window.InputBindings>
+        <KeyBinding Key="Up" Command="{Binding IncrementCommand}"></KeyBinding>
+        <KeyBinding Key="Down" Command="{Binding DecrementCommand}"></KeyBinding>
+    </Window.InputBindings>
     <Grid>
         <Grid.Resources>
             <Style TargetType="Line">
@@ -24,12 +29,17 @@
                 <Setter Property="FontSize" Value="20"></Setter>
             </Style>
         </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="9*"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <!--<testCreateChart:MyChart x:Name="Chart" AutoGenerateYAxisItems="True" YAxisItemInterval="200"  YAxisLineInterval="100" MinYValue="0" MaxYValue="1000" MinXValue="0" MaxXValue="300" />-->
-        <testCreateChart:MeterControl x:Name="MyMeter" Grid.Row="0"  VerticalAlignment="Stretch" MinValue="0" MaxValue="100"  UpperValue="100" LowerValue="0" Background="CadetBlue" Width="80"></testCreateChart:MeterControl>
-        <Label Foreground="Black" Content="{Binding ElementName=MyMeter, Path=UpperValue}"  Width="100" Height="30" Grid.Row="1"></Label>
+        <testCreateChart:MeterControl Grid.ColumnSpan="2" x:Name="MyMeter" Grid.Row="0"  VerticalAlignment="Stretch" MinValue="{Binding MinValue}" MaxValue="{Binding MaxValue}"  UpperValue="{Binding UpperValue, Mode=TwoWay}" LowerValue="{Binding LowerValue, Mode=TwoWay}" Background="CadetBlue" Width="80"></testCreateChart:MeterControl>
+        <Label Grid.Column="0" Foreground="Black" Content="{Binding ElementName=MyMeter, Path=UpperValue}"  Width="100" Height="30" Grid.Row="1"></Label>
+        <Label Foreground="Black" Grid.Column="1" Content="{Binding ElementName=MyMeter, Path=LowerValue}"  Width="100" Height="30" Grid.Row="1"></Label>
     </Grid>
 </Window>

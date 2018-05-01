@@ -35,3 +35,16 @@ C:\TestCreateChart\TestCreateChart\obj\Debug\TestCreateChart.exe
 C:\TestCreateChart\TestCreateChart\obj\Debug\TestCreateChart.pdb
 C:\TestCreateChart\TestCreateChart\obj\Debug\Themes\Generic.baml
 C:\TestCreateChart\TestCreateChart\obj\Debug\TestCreateChart.csprojResolveAssemblyReference.cache
+C:\TestCreateChart\TestCreateChart\bin\Debug\CommonServiceLocator.dll
+C:\TestCreateChart\TestCreateChart\bin\Debug\GalaSoft.MvvmLight.dll
+C:\TestCreateChart\TestCreateChart\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+C:\TestCreateChart\TestCreateChart\bin\Debug\GalaSoft.MvvmLight.Platform.dll
+C:\TestCreateChart\TestCreateChart\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\TestCreateChart\TestCreateChart\bin\Debug\System.Windows.Interactivity.dll
+C:\TestCreateChart\TestCreateChart\bin\Debug\GalaSoft.MvvmLight.pdb
+C:\TestCreateChart\TestCreateChart\bin\Debug\GalaSoft.MvvmLight.xml
+C:\TestCreateChart\TestCreateChart\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+C:\TestCreateChart\TestCreateChart\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+C:\TestCreateChart\TestCreateChart\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
+C:\TestCreateChart\TestCreateChart\bin\Debug\GalaSoft.MvvmLight.Platform.xml
+C:\TestCreateChart\TestCreateChart\obj\Debug\App.baml
